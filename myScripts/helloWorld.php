@@ -6,7 +6,7 @@ require_once "./classes/workflowFunctions.php";
 $response = eeGetEthosDataModelByFilter("buildings","");
 print json_encode($response,JSON_PRETTY_PRINT);
 $atat_someCaseVar = "foo";
-$ateq_someCaseVarGrid = "foo"
+$ateq_someCaseVarGrid = "foo";
 
 
 print "end";
