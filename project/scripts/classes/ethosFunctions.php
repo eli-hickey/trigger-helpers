@@ -21,6 +21,25 @@ function eeGetEthosSessionToken() {
     return  $response->result;
 
 }
+function eeGetEthosDataModel($resource, $id, $version = null, $token = null, $useCache = true)
+{
+    $version = $version??"application/json";
+    $ch = curl_init("https://integrate.elluciancloud.{$_ENV['ETHOS_REGION']}/api/$resource/$id");
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Accept: application/json',
+        "Content-Type:$version",
+        "Authorization: Bearer ". eeGetEthosSessionToken())
+    );
+    //'Content-Type: multipart/form-data',
+    $response = new stdClass;
+    $response->result = curl_exec($ch);
+    $response->error = curl_error($ch);
+    $response->info = curl_getinfo($ch);
+    curl_close($ch);
+    return  $response;
+}
 
 function eeGetEthosDataModelByFilter($resource, $criteria, $version = null, $token = null, $useCache = true)
 {
