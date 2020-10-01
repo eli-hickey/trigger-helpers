@@ -38,11 +38,12 @@ function eeGetEthosDataModel($resource, $id, $version = null, $token = null, $us
     $response->error = curl_error($ch);
     $response->info = curl_getinfo($ch);
     curl_close($ch);
-    return  $response;
+    return  processResponse($response);
 }
 
 function eeGetEthosDataModelByFilter($resource, $criteria, $version = null, $token = null, $useCache = true)
 {
+    $token = eeGetEthosSessionToken();
     $version = $version??"application/json";
     $ch = curl_init("https://integrate.elluciancloud.{$_ENV['ETHOS_REGION']}/api/$resource/$criteria");
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
@@ -50,7 +51,7 @@ function eeGetEthosDataModelByFilter($resource, $criteria, $version = null, $tok
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'Accept: application/json',
         "Content-Type:$version",
-        "Authorization: Bearer ". eeGetEthosSessionToken())
+        "Authorization: Bearer $token" )
     );
     //'Content-Type: multipart/form-data',
     $response = new stdClass;
@@ -58,7 +59,7 @@ function eeGetEthosDataModelByFilter($resource, $criteria, $version = null, $tok
     $response->error = curl_error($ch);
     $response->info = curl_getinfo($ch);
     curl_close($ch);
-    return  $response;
+    return  processResponse($response);
 }
 
 /**
@@ -81,7 +82,7 @@ function ethosGetAppConfig($token){
         $response->error = curl_error($ch);
         $response->info = curl_getinfo($ch);
         curl_close($ch);
-        return  $response;
+        return processResponse($response);
 
 }
 
@@ -101,7 +102,7 @@ function ethosGetChangeNotifications($token){
         $response->error = curl_error($ch);
         $response->info = curl_getinfo($ch);
         curl_close($ch);
-        return  $response;
+        return  processResponse($response);
 
 }
 
@@ -120,7 +121,7 @@ function ethosGetAvailableResources($token){
         $response->error = curl_error($ch);
         $response->info = curl_getinfo($ch);
         curl_close($ch);
-        return  $response;
+        return  processResponse($response);
 
 }
 
@@ -141,6 +142,26 @@ function ethosGetErrors($token){
     $response->error = curl_error($ch);
     $response->info = curl_getinfo($ch);
     curl_close($ch);
-    return  $response;
+    return  processResponse($response);
+
+}
+
+function processResponse($response){
+
+$result = (object) array(
+    'statusCode' => 403,
+    'statusMessage' => 'Forbidden',
+    'headers' => null,
+    'dataStr' => null,
+    'dataObj' => json_decode($response->result),
+    'version' => null,
+    'isError' => true,
+    'errorMessage' => 'No Ellucian Ethos auth token - Is your Ethos API Key correct?',
+    'count' => 0,
+    'totalCount' => null,
+    'maxPageSize' => null);
+
+    return $result;
+
 
 }
