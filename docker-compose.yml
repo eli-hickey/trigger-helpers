@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  php:
+    # container_name: php
+    tty: true # Enables debugging capabilities when attached to this container.
+    # image: 'docker.io/bitnami/php-fpm:7.4-debian-10'
+    # image: 'docker.io/bitnami/php-fpm:latest'
+    ports:
+      - "9003:9003"
+
+    build:
+      context: ./
