@@ -21,6 +21,10 @@ function eeGetEthosSessionToken() {
     return  $response->result;
 
 }
+
+function test(){return "foo";}
+
+
 function eeGetEthosDataModel($resource, $id, $version = null, $token = null, $useCache = true)
 {
     $version = $version??"application/json";
