@@ -7,7 +7,7 @@
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
 	"dockerComposeFile": [
-		"..\\docker-compose.yml",
+		"../docker-compose.yml",
 		"docker-compose.yml"
 	],
 
@@ -27,7 +27,7 @@
 			"php"
 		],
 		"intelephense.diagnostics.deprecated": false,
-		"intelephense.environment.includePaths": ["c:/class"],
+		"intelephense.environment.includePaths": ["/project/classes"],
 		"intelephense.files.exclude": [
             "**/.git/**",
             "**/.svn/**",
