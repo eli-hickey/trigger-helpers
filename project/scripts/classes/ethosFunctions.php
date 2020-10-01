@@ -1,4 +1,47 @@
 <?php
+require_once "/vendor/autoload.php";
+$dotenv = Dotenv\Dotenv::createImmutable("/project");
+$dotenv->load();
+function eeGetEthosSessionToken() {
+    //$_ENV["API_KEY"]
+    $ch = curl_init("https://integrate.elluciancloud.{$_ENV['ETHOS_REGION']}/auth");
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Cache-Control: no-cache", "Authorization: Bearer " . $_ENV["API_KEY"]));
+    //'Content-Type: multipart/form-data',
+    $response = new stdClass;
+    $response->result = curl_exec($ch);
+    $response->error = curl_error($ch);
+    $response->info = curl_getinfo($ch);
+    if (empty($response->result) ||$response->error || $response->result == '{"message":"Invalid API KEY"}') {
+       $msg = "error getting token: " . json_encode($response,JSON_PRETTY_PRINT);
+       error_log($msg);
+    }
+    curl_close($ch);
+    return  $response->result;
+
+}
+
+function eeGetEthosDataModelByFilter($resource, $criteria, $version = null, $token = null, $useCache = true)
+{
+    $version = $version??"application/json";
+    $ch = curl_init("https://integrate.elluciancloud.{$_ENV['ETHOS_REGION']}/api/$resource/$criteria");
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Accept: application/json',
+        "Content-Type:$version",
+        "Authorization: Bearer ". eeGetEthosSessionToken())
+    );
+    //'Content-Type: multipart/form-data',
+    $response = new stdClass;
+    $response->result = curl_exec($ch);
+    $response->error = curl_error($ch);
+    $response->info = curl_getinfo($ch);
+    curl_close($ch);
+    return  $response;
+}
+
 /**
  * @param mixed $token
  * @return mixed
