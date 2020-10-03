@@ -253,7 +253,7 @@ function eeGetEthosDataModelByFilter($resource, $criteria, $version = null, $tok
 
     echo "$method $url" . PHP_EOL;
     if ($url != urldecode($url)) {
-        echo "    (decoded: " . urldecode($url) . PHP_EOL;
+        echo "    (decoded: " . urldecode($url) . ")".PHP_EOL;
     }
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);

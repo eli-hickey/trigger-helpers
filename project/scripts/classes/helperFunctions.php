@@ -9,18 +9,19 @@ define("PATH_DOCUMENT","");
 define("PATH_SEP","");
 define("Cases","");
 
-$atat_SYS_LANG="en";
-$atat_SYS_SKIN="ellucianux";
-$atat_SYS_SYS = "triggerHelper";
-$atat_PROCESS = "";
-$atat_TASK = "";
-$atat_APPLICATION = "";
-$atat_APP_NUMBER = "";
-$atat_USER_LOGGED = "";
-$atat_USR_USERNAME = "";
-$atat_INDEX = "";
-$atat_PIN = "";
-$atat___ERROR__ = "";
+
+// $GLOBALS["atat_SYS_LANG"]="en";
+// $GLOBALS["atat_SYS_SKIN"]="ellucianux";
+// $GLOBALS["atat_SYS_SYS"]= "triggerHelper";
+// $GLOBALS["atat_PROCESS"]= "";
+// $GLOBALS["atat_TASK"]= "";
+// $GLOBALS["atat_APPLICATION"]= "";
+// $GLOBALS["atat_APP_NUMBER"]= "";
+// $GLOBALS["atat_USER_LOGGED"]= "";
+// $GLOBALS["atat_USR_USERNAME"]= "";
+// $GLOBALS["atat_INDEX"]= "";
+// $GLOBALS["atat_PIN"]= "";
+// $GLOBALS["atat___ERROR__"]= "";
 
 
 
