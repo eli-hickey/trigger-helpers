@@ -27,7 +27,7 @@
 			"php"
 		],
 		"intelephense.diagnostics.deprecated": false,
-		"intelephense.environment.includePaths": ["/project/classes","/vendor/vlucas/phpdotenv/src"],
+		"intelephense.environment.includePaths": ["/project/classes","/vendor"],
 		"intelephense.files.exclude": [
             "**/.git/**",
             "**/.svn/**",

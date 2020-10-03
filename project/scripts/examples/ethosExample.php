@@ -1,7 +1,6 @@
 <?php
-require_once "similarToEthosFunctions.php";
 require_once "helperFunctions.php";
-require_once "workflowFunctions.php";
+
 // place any code prior to the triggerStart comment
 // for example if the user would enter the dept code you can set the case variable here
 $atat_departmentCode = "xyz";
@@ -44,9 +43,9 @@ $atat_departmentCode = "xyz";
         heredoc;
         $graphResponse = eeGetEthosDataByGraphQLQuery($graphQuery);
 
-    // use case variables
-        $atat_someCaseVar = "foo";
-        $ateq_someCaseVarGrid = "foo";
+    // update case variables
+        $atat_someCaseVar = "example";
+        $ateq_someCaseVarGrid = "example";
 //triggerEnd
     // use this section to include extra code that is useful for intial development
     // but should not be included in trigger code
