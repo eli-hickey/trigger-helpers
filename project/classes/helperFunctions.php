@@ -1,6 +1,9 @@
 <?php
 require_once "similarToEthosFunctions.php";
 require_once "Ellucian PS Functions and Classes V5 with Graph.php";
+require_once "similarToProcessMakerFunctions.php";
+require_once "ethosDataModels.php";
+
 define("DB_HOST","");
 define("DB_USER","");
 define("DB_PASS","");

@@ -21,13 +21,11 @@
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
-
-		"terminal.integrated.shell.linux": null,
-		"emmet.excludeLanguages": [
-			"php"
-		],
+	
+		"editor.wordBasedSuggestions": false,
+		"editor.parameterHints.enabled": true,
 		"intelephense.diagnostics.deprecated": false,
-		"intelephense.environment.includePaths": ["/project/classes","/vendor"],
+		"intelephense.environment.includePaths": ["/project/classes","/project/vendor","project/ethosClasses","project/scripts"],
 		"intelephense.files.exclude": [
             "**/.git/**",
             "**/.svn/**",
@@ -49,7 +47,9 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"felixfbecker.php-debug",
-		"bmewburn.vscode-intelephense-client"
+		"bmewburn.vscode-intelephense-client",
+		"kokororin.vscode-phpfmt",
+		"esbenp.prettier-vscode"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -57,3 +57,9 @@
 
 
 }
+
+
+// "felixfbecker.php-intellisense",
+// "rexshi.phpdoc-comment-vscode-plugin"
+// vscode:extension/neilbrayfield.php-docblocker
+//"intelephense.environment.includePaths": ["/vendor"],
