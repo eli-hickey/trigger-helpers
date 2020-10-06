@@ -19,14 +19,7 @@
 	
 	"New Script":{
 		"prefix":["php","<?","New Script"],
-		"body":["<?php","//triggerStart"," ${0:#code} ","//triggerEnd","print 'end of script';"],
-		"description": "Set up new ethos trigger"
-	},
-
-		
-	"delme":{
-		"prefix":["delme"],
-		"body":"${1:another ${2:|one,two,three|}}",
+		"body":["<?php"," require_once 'helperFunctions.php';","//triggerStart"," ${0:#code} ","//triggerEnd","print 'end of script';"],
 		"description": "Set up new ethos trigger"
 	}
 }
