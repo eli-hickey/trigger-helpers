@@ -31,3 +31,5 @@ Steps to use
 
 
 You are now ready to get your ethos data with some ee functions.
+
+To refresh the provided functions periodically run git pull
