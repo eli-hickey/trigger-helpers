@@ -1,12 +1,8 @@
 Contributions are welcome and encouraged!  If you think you can enhance the developers experience with this tool or have a cool example please contribute!  
-Please see the 
+Please see the [To Do project]](https://github.com/eli-hickey/trigger-helpers/projects/1) for ideas and propose your own.  Feel free to improve to this file or the reademe.md files.  
 
-[To Do Project]:https://github.com/eli-hickey/trigger-helpers/projects/1
-
- project for ideas or propose your own.  Feel free to propose improvements to this file or the reademe.md files.  
-
-Guidlines for a good example
-1. Examples should be added under /porject/scripts/examples
+Guidelines for a good example
+1. Examples should be added under /project/scripts/examples
 2. File names should descriptive and in the format of verbNoun.php
 3. All variable names should be camelCase.
 4. Examples should be functional with minimal adjustments.  
