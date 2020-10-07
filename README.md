@@ -17,7 +17,7 @@ Steps to use
    ```
 
 4. In VS Code use command pallet command 'Remote-Containers: Open Folder in Container...' and select the trigger-helpers folder created by the git clone command.
-6. Rename env.example to .env and add your api key and region to it (US  = 'com', Canada = 'ca' ...)
+6. Rename /project/scripts/setup/env.example to .env and add your api key and region to it (US  = 'com', Canada = 'ca' ...)
 7. Run the Demo ethosExamples to verify everything is working
    1. Open the /scripts/examples/ethosExamples.php
    2. Add a breakpoint on the last line
