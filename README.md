@@ -1,7 +1,7 @@
 # trigger-helpers
 Provides a step debugger in the php runtime with xdebug and some functions commonly used in workflow trigger development.
-Can be used to speed up development of workflow triggers by allowing the designer
-to inspect results from function calls and see the exact data structures returned.
+Can be used to speed up development of workflow triggers by providing code completion for ee functions and  allowing the designer
+to inspect results from ee function calls and see the exact data structures returned.
 
 Steps to use
 
