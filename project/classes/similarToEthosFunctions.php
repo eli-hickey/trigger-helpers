@@ -1,6 +1,6 @@
 <?php
 require_once "/project/vendor/autoload.php";
-$dotenv = Dotenv\Dotenv::createImmutable("/project");
+$dotenv = Dotenv\Dotenv::createImmutable("/project/scripts/setup");
 $dotenv->load();
 //stubs
 
