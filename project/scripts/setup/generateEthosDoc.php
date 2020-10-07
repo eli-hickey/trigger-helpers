@@ -3,21 +3,33 @@ file_put_contents("/project/ethosClasses/ethosDataModels.php", "<?php");
 require_once "helperFunctions.php";
 $availableResources = ethosGetAvailableResources();
 $validForGet = array();
+
+
 foreach ($availableResources->dataObj as $appkey => $authoritativeApp) {
     $appNames = array("IntegrationApi", "StudentApi");
     if (!empty($authoritativeApp->about[0]->applicationName) && in_array($authoritativeApp->about[0]->applicationName, $appNames)) {
+        $fileName = "raw_".str_replace(" ","_",$authoritativeApp->name).".json";
+        file_put_contents("/project/ethosDoc/$fileName",json_encode($authoritativeApp,JSON_PRETTY_PRINT));
         foreach ($authoritativeApp->resources as $reskey => $resource) {
             $name = getNameVariants($resource->name);
             $properties[$name->kebabCase] = "public $" . $name->camelCase . "='$name->kebabCase';";
             foreach ($resource->representations as $repkey => $representation) {
+                $filters = "";
+                if (!empty($representation->filters)) {
+                    $filters = implode(", ",$representation->filters);
+                }
                 if (!empty($representation->version)) {
                     $nameV = getNameVariants($resource->name . $representation->version);
                     if (!empty($representation->methods)) {
                         foreach ($representation->methods as $key => $method) {
                             $properties[$nameV->kebabCase] = "public $" . $method . "_" . $nameV->camelCase . "='" . $representation->{"X-Media-Type"} . "';";
+                            $output[$method.$nameV->kebabCase] = array("name"=>$name->kebabCase,"method"=>$method,"version"=>$representation->version,"xMediaType"=>$representation->{"X-Media-Type"},"filters"=>$filters);
                             switch ($method) {
                                 case 'get':
                                     $validForGet[$name->camelCase] = $name->kebabCase;
+                                    
+
+                                    
                                     break;
                                 
                                 default:
@@ -33,6 +45,21 @@ foreach ($availableResources->dataObj as $appkey => $authoritativeApp) {
         }
     }
 }
+$csvHeaders = "resourceName,Method,Version,ContentType,filters";
+$file = fopen("/project/ethosDoc/availableResources.csv","w");
+$i = 0;
+foreach ($output as $key => $line) {
+    $i++;
+    if ($i == 1) {
+        fputcsv($file,explode(",",$csvHeaders));
+        fputcsv($file,$line);
+    } else {
+        fputcsv($file,$line);
+    }
+}
+fclose($file);
+file_put_contents("/project/ethosDoc/availableResources.json",json_encode($output,JSON_PRETTY_PRINT));
+
 $response = '$response';
 $ethosOptions = implode(",",$validForGet);
 $snippet = <<<'nowdoc'

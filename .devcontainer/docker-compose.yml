@@ -26,6 +26,7 @@ services:
       - ./project/scripts:/project/scripts:cached
       - ./project/classes:/project/classes:cached
       - ./project/ethosClasses:/project/ethosClasses:cached
+      - ./project/ethosDoc:/project/ethosDoc:cached
       - ./project/.vscode:/project/.vscode
       - ./project/.env.example:/project/.env.example
       - ./project/.env:/project/.env
