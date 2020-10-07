@@ -2,11 +2,14 @@ Contributions are welcome and encouraged!  If you think you can enhance the deve
 Please see the TO DO project tab for ideas or propose your own.  Feel free to propose improvements to this file or the reademe.md files.  
 
 Guidlines for a good example
-1. all variable names follow the camelCase.
-2. Examples should be functional with minimal adjustments.  
-3. If your example requires a value provided by the user or another routine please set it prior to the //triggerStart.  
+1. Examples should be added under /porject/scripts/examples
+2. File names should descriptive and in the format of verbNoun.php
+3. All variable names should be camelCase.
+4. Examples should be functional with minimal adjustments.  
+5. If your example requires a value provided by the user on a dynaform or another trigger please set it prior to the //triggerStart.  
 
 An example Example:
+filename translateAcademicPeriodCode.php
 ```
 <?php
  require_once 'helperFunctions.php';
