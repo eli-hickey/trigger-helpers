@@ -217,7 +217,7 @@ function eeGetEthosDataByGraphQLQuery($query)
  * @param  mixed $version
  * @param  mixed $token
  * @param  mixed $useCache
- * @return void
+ * @return mixed
  */
 function eeGetEthosDataModelByFilter($resource, $criteria, $version = null, $token = null, $useCache = true)
 {
@@ -228,7 +228,8 @@ function eeGetEthosDataModelByFilter($resource, $criteria, $version = null, $tok
     $filter = "";
     if (!empty($criteria->criteria)) {
         foreach ($criteria as $key => $item) {
-            $filter = "criteria=" . urlencode(json_encode($item));
+            $delim = (empty($filter)) ? "?" : "&";
+            $filter = "{$delim}criteria=" . urlencode(json_encode($item));
             break;
         }
     }

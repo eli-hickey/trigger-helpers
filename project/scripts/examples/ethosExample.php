@@ -22,7 +22,7 @@ $atat_departmentCode = "xyz";
 
     //Use a guid to get the the first department
         $departmentGuid = $r_academicPeriods->dataObj[0]->id;
-        $r_academicPeriods = eeGetEthosDataModel("academic-periods",$departmentGuid);
+        $r_academicPeriod = eeGetEthosDataModel("academic-periods",$departmentGuid);
 
     // get departments with graphQl and data access
         $graphQuery = <<<heredoc
