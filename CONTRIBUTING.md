@@ -1,5 +1,5 @@
 Contributions are welcome and encouraged!  If you think you can enhance the developers experience with this tool or have a cool example please contribute!  
-Please see the [To Do project]](https://github.com/eli-hickey/trigger-helpers/projects/1) for ideas and propose your own.  Feel free to improve to this file or the reademe.md files.  
+Please see the [To Do project](https://github.com/eli-hickey/trigger-helpers/projects/1) for ideas and propose your own.  Feel free to improve to this file or the reademe.md files.  
 
 Guidelines for a good example
 1. Examples should be added under /project/scripts/examples
