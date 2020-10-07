@@ -334,7 +334,7 @@ function findEdges($obj)
  * @param  mixed $method
  * @param  mixed $url
  * @param  mixed $requestHeaders
- * @return void
+ * @return mixed
  */
 function callCurl(string $method, string $url, array $requestHeaders)
 {
