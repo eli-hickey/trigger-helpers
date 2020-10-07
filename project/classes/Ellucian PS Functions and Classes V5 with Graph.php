@@ -1,5 +1,6 @@
 <?php
 //Trigger Name: Ellucian PS Functions and Classes V5 with graph
+
 class erpUser{
 public $credentialType;
 public $credentialValue;

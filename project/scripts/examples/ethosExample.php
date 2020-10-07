@@ -43,6 +43,10 @@ $atat_departmentCode = "xyz";
         heredoc;
         $graphResponse = eeGetEthosDataByGraphQLQuery($graphQuery);
 
+    // Use erpUser class
+
+    $student = new erpUser($atat_APPLICATION,"bannerUserName","emcque","student");
+
     // update case variables
         $atat_someCaseVar = "example";
         $ateq_someCaseVarGrid = "example";

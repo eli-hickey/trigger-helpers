@@ -3,10 +3,7 @@ require_once "/project/vendor/autoload.php";
 $dotenv = Dotenv\Dotenv::createImmutable("/project");
 $dotenv->load();
 //stubs
-function eeGetUserFromEthos($credentialType, $credential)
-{
-    return "";
-};
+
 function eeWorkspaceName()
 {
     return "triggerHelper";
@@ -247,6 +244,16 @@ function eeGetEthosDataModelByFilter($resource, $criteria, $version = null, $tok
 
     return callCurl($method, $url, $requestHeaders);
 }
+
+function eeGetUserFromEthos($credentialType, $credential)
+{
+    $filter = new stdClass;
+    $filter->criteria = new stdClass;
+    $filter->criteria->credentials[] = (object) array("type"=>$credentialType,"value"=>$credential);
+    $response = eeGetEthosDataModelByFilter("persons",$filter);
+    $response->dataObj = $response->dataObj[0];
+    return $response;
+};
 function eeGetEthosDataModel($resource, $id, $version = null, $token = null, $useCache = true)
 {
 
