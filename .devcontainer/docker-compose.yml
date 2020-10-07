@@ -28,7 +28,6 @@ services:
       - ./project/ethosDoc:/project/ethosDoc:cached
       - ./project/.vscode:/project/.vscode
       - ./project/.env.example:/project/.env.example
-      - ./project/.env:/project/.env
       - ./project/readme.md:/project/readme.md
 
 
