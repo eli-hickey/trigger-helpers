@@ -16,19 +16,19 @@ filename translateAcademicPeriodCode.php
 //This trigger requires the termCode case variable to have a term code allready set typically on a dynaform 
 // and will add case variables for the term guid and title
 // Input
- $atat_termCode = "202020";
+    $atat_termCode = "202020";
 // Output
-// case variables termGuid and termTitle
+//  case variables termGuid and termTitle
 //triggerStart
-$filter = new stdClass;
-$filter->criteria = new stdClass;
-$filter->criteria->code = $atat_termCode;
-$response = eeGetEthosDataModelByFilter('academic-periods',$filter);
-$atat_termGuid = $response->dataObj[0]->id;
-$atat_termTitle = $response->dataObj[0]->title;
+    $filter = new stdClass;
+    $filter->criteria = new stdClass;
+    $filter->criteria->code = $atat_termCode;
+    $response = eeGetEthosDataModelByFilter('academic-periods',$filter);
+    $atat_termGuid = $response->dataObj[0]->id;
+    $atat_termTitle = $response->dataObj[0]->title;
  
 //triggerEnd
-print 'end of script';
+    print 'end of script';
 
 
 ```
