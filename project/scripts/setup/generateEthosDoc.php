@@ -5,7 +5,7 @@ $validForGet = array();
 
 
 foreach ($availableResources->dataObj as $appkey => $authoritativeApp) {
-    $appNames = array("IntegrationApi", "StudentApi");
+    $appNames = array("IntegrationApi", "StudentApi", "Colleague Web Api");
     if (!empty($authoritativeApp->about[0]->applicationName) && in_array($authoritativeApp->about[0]->applicationName, $appNames)) {
         $fileName = "raw_".str_replace(" ","_",$authoritativeApp->name).".json";
         file_put_contents("/project/ethosDoc/$fileName",json_encode($authoritativeApp,JSON_PRETTY_PRINT));
