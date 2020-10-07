@@ -3,6 +3,8 @@ Provides a step debugger in the php runtime with xdebug and some functions commo
 Can be used to speed up development of workflow triggers by providing code completion for ee functions and  allowing the designer
 to inspect results from ee function calls and see the exact data structures returned.
 
+Also provides working examples of use PHP curl commands to interact with Ethos APIs.
+
 Steps to use
 
 1. Download and install git, visual studio code, and docker desktop if needed.
