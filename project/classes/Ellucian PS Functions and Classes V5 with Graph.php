@@ -21,7 +21,7 @@ public $wfRole;
  * The @@ variables are named like wfRolePropertyName ie: studentFirstName
  */
     public function __construct($application,$credentialType,$credentialValue,$wfRole,$version =null,$graphLogLevel = "not_in_use"){
-     if ($_SERVER["OS"] == "Windows_NT") {
+     if ($GLOBALS["atat_SYS_SYS"]== "triggerHelper") {
         $caseUID = "fake";
         $aVariables = array();
         $aVariables['debug'] = "";

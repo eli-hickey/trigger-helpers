@@ -12,18 +12,18 @@ define("PATH_SEP","");
 define("Cases","");
 
 
-// $GLOBALS["atat_SYS_LANG"]="en";
-// $GLOBALS["atat_SYS_SKIN"]="ellucianux";
-// $GLOBALS["atat_SYS_SYS"]= "triggerHelper";
-// $GLOBALS["atat_PROCESS"]= "";
-// $GLOBALS["atat_TASK"]= "";
-// $GLOBALS["atat_APPLICATION"]= "";
-// $GLOBALS["atat_APP_NUMBER"]= "";
-// $GLOBALS["atat_USER_LOGGED"]= "";
-// $GLOBALS["atat_USR_USERNAME"]= "";
-// $GLOBALS["atat_INDEX"]= "";
-// $GLOBALS["atat_PIN"]= "";
-// $GLOBALS["atat___ERROR__"]= "";
+$GLOBALS["atat_SYS_LANG"]="en";
+$GLOBALS["atat_SYS_SKIN"]="ellucianux";
+$GLOBALS["atat_SYS_SYS"]= "triggerHelper"; 
+$GLOBALS["atat_PROCESS"]= "";
+$GLOBALS["atat_TASK"]= "";
+$GLOBALS["atat_APPLICATION"]= "";
+$GLOBALS["atat_APP_NUMBER"]= "";
+$GLOBALS["atat_USER_LOGGED"]= "";
+$GLOBALS["atat_USR_USERNAME"]= "";
+$GLOBALS["atat_INDEX"]= "";
+$GLOBALS["atat_PIN"]= "";
+$GLOBALS["atat___ERROR__"]= "";
 
 
 
