@@ -22,4 +22,4 @@
 		"body":["<?php"," require_once 'helperFunctions.php';","//triggerStart"," ${0:#code} ","//triggerEnd","print 'end of script';"],
 		"description": "Set up new ethos trigger"
 	}
-}
+} 
