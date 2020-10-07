@@ -1,5 +1,4 @@
 <?php
-file_put_contents("/project/ethosClasses/ethosDataModels.php", "<?php");
 require_once "helperFunctions.php";
 $availableResources = ethosGetAvailableResources();
 $validForGet = array();
