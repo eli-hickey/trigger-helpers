@@ -21,9 +21,8 @@ This tool is strictly 'as is'.
 
 You are now ready to get your ethos data with some ee functions.
 
-1. Create a folder to store your scripts. If you want to get the latest version of this tool be sure to preserve your folder prior to running git clone again
-1. Copy @generate from /examples to your folder
-1. Create a .php file for your scripts add the require statememnts:
+1. Create your scripts in the /project/scripts/Mywork folder
+1. Create a .php file for your scripts:
    1. type 'php' and select the snippet suggestion or type:
    ```<?php
             require_once "helperFunctions.php";
@@ -43,4 +42,5 @@ Note - this project is provided as is.  The ee functions used here a simulations
 The names arguments match however the data returned might not be exactly the same.
 
 
-As new features are added you can run git pull from the /trigger-helpers local directory to get the most recent updates.
+As new features are added you can run git pull from the /trigger-helpers local directory to get the most recent updates.  
+
