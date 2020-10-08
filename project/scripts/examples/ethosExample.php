@@ -4,6 +4,7 @@ require_once "helperFunctions.php";
 // place any code prior to the triggerStart comment
 // for example if the user would enter the dept code you can set the case variable here
 $atat_departmentCode = "xyz";
+$atat_userName = "emcque";
 //triggerStart
 
     // Currently there are three 'similar to ellucian workflow' ethos functions.
@@ -45,7 +46,7 @@ $atat_departmentCode = "xyz";
 
     // Use erpUser class
 
-    $student = new erpUser($atat_APPLICATION,"bannerUserName","emcque","student");
+    $student = new erpUser($atat_APPLICATION,"bannerUserName",$atat_userName,"student");
 
     // update case variables
         $atat_someCaseVar = "example";

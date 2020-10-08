@@ -251,7 +251,7 @@ function eeGetUserFromEthos($credentialType, $credential)
     $filter->criteria = new stdClass;
     $filter->criteria->credentials[] = (object) array("type"=>$credentialType,"value"=>$credential);
     $response = eeGetEthosDataModelByFilter("persons",$filter);
-    $response->dataObj = $response->dataObj[0];
+    $response->dataObj = $response->dataObj[0]??new stdClass;
     return $response;
 };
 function eeGetEthosDataModel($resource, $id, $version = null, $token = null, $useCache = true)
