@@ -1,7 +1,5 @@
 <?php
-require_once "/project/vendor/autoload.php";
-$dotenv = Dotenv\Dotenv::createImmutable("/project/scripts/setup");
-$dotenv->load();
+
 //stubs
 
 function eeWorkspaceName()
@@ -26,7 +24,7 @@ function eePHP_file_exists($x)
 }
 function eePHP_file_get_contents($x)
 { //file_get_contents($x);
-    return "";
+    return file_get_contents($x);
 }
 function eePHP_file_put_contents($x)
 { //file_put_contents($x);
@@ -76,19 +74,36 @@ function eePHP_unlink($x)
 // live functions
 function eeGetEthosSessionToken()
 {
-    $method = "POST";
-    $url = "https://integrate.elluciancloud.{$_ENV['ETHOS_REGION']}/auth";
-    $requestHeaders = array(
-        'Accept: application/json',
-        "Content-Type: application/json",
-        "Cache-Control: no-cache",
-        "Authorization: Bearer {$_ENV['API_KEY']}"
-    );
-    $response = callCurl($method, $url, $requestHeaders);
-    if (empty($response->result) || $response->error || $response->result == '{"message":"Invalid API KEY"}') {
-        $msg = "error getting token: " . json_encode($response, JSON_PRETTY_PRINT);
-        error_log($msg);
+    $response = new stdClass;
+    if (empty($_ENV['token']) || time() >= $_ENV['tokenExpires'] ) {
+        $method = "POST";
+        $url = "https://integrate.elluciancloud.{$_ENV['ETHOS_REGION']}/auth";
+        $requestHeaders = array(
+            'Accept: application/json',
+            "Content-Type: application/json",
+            "Cache-Control: no-cache",
+            "Authorization: Bearer {$_ENV['API_KEY']}"
+        );
+        $response = callCurl($method, $url, $requestHeaders);
+        if (empty($response->result) || $response->error || $response->result == '{"message":"Invalid API KEY"}') {
+            $msg = "error getting token: " . json_encode($response, JSON_PRETTY_PRINT);
+            error_log($msg);
+        } else {
+            $tenant = json_decode(base64_decode(explode(".", $response->result)[1]));
+            
+            $_ENV['tokenExpires'] = $tenant->exp -30;
+            $_ENV['token'] = $response->result;    
+            $_ENV['ethosTenant'] = $tenant->tenant->alias??"error";    
+
+            $testOrProd = $tenant->tenant->label??"";
+            $testOrProd = (empty($tenant->tenant->label)) ? "" : $tenant->tenant->label." " ;
+            print "Using Ethos {$testOrProd}Tenant: {$tenant->tenant->name} " .PHP_EOL. str_repeat("-",85).PHP_EOL;
+            
+        } 
+    } else {
+        $response->result = $_ENV['token'];
     }
+
     return  $response->result;
 }
 

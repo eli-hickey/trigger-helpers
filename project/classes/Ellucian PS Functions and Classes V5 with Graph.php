@@ -279,10 +279,12 @@ function getDataFromGraph($query,$resource = "", $primaryId="", $logLevel = "not
 
 
   function readEthosDataFromCache($resource){
-      if ($_SERVER["OS"] == "Windows_NT" ) {
-        $path = "c:/EthosCustomerCache/" . $GLOBALS["customer"] . "/";
-        $filename = $path.$resource.".dat";
-
+        if ($GLOBALS["atat_SYS_SYS"]== "triggerHelper") {
+            $token = eeGetEthosSessionToken();
+            $customer = $_ENV['ethosTenant'];
+            $path = '/project/ethosCache/' . $customer."/";
+            $filename = $path.$resource.".dat";
+            $resource = unserialize(eePHP_file_get_contents($filename));
         return $resource;
       } else {
           $filename = PATH_DOCUMENT.'cache'.PATH_SEP.$resource.".dat";

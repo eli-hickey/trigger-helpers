@@ -26,6 +26,7 @@
 		"editor.parameterHints.enabled": true,
 		"intelephense.diagnostics.deprecated": false,
 		"intelephense.environment.includePaths": ["/project/classes","/project/vendor","project/ethosClasses","project/scripts"],
+		"window.title": "Trigger Helper (container)",
 		"intelephense.files.exclude": [
             "**/.git/**",
             "**/.svn/**",

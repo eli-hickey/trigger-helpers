@@ -1,7 +1,14 @@
 <?php
+require_once "/project/vendor/autoload.php";
+$dotenv = Dotenv\Dotenv::createMutable("/project/scripts/setup");
+$dotenv->load();
+$dotenv->required(['API_KEY','ETHOS_REGION']);
+
+
 require_once "similarToEthosFunctions.php";
 require_once "Ellucian PS Functions and Classes V5 with Graph.php";
 require_once "similarToProcessMakerFunctions.php";
+
 
 define("DB_HOST","");
 define("DB_USER","");
