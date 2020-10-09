@@ -21,7 +21,8 @@
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
-	
+		"debug.focusWindowOnBreak": true,
+		"debug.internalConsoleOptions": "openOnFirstSessionStart",
 		"editor.wordBasedSuggestions": false,
 		"editor.parameterHints.enabled": true,
 		"intelephense.diagnostics.deprecated": false,
