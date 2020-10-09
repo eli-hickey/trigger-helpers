@@ -38,7 +38,7 @@ function localGetAllEthosDatafromResource($resource, $version, $filterIn)
         }
         $curResponse = eeGetEthosDataModelByFilter($resource, $filter, $version, $token);
         if ($curResponse->isError || $curResponse->count == 0) {
-           localEwfLogMsg($resource . " error: " . $curResponse->errorMessage);
+           localEwfLogMsg($resource . " error: " . json_encode($curResponse->errorMessage));
             break; //
         }
         if ($i == 0) {
@@ -59,7 +59,7 @@ function localGetAllEthosDatafromResource($resource, $version, $filterIn)
     }
    
     //$allData["cacheInfo"] ="This data was generated on ".  date('c') ." in ".$tenantInfo;
-    return $allData;
+    return $allData??"";
 }
 
 function cacheResources(array $resources)
