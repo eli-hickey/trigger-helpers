@@ -250,10 +250,16 @@ function eeGetEthosDataModelByFilter($resource, $criteria, $version = null, $tok
         $filter = "{$delim}offset={$criteria->offset}&limit={$criteria->limit}";
     }
     $filter = $filter;
+    if (empty($filter) & !empty($criteria)) {
+        $filter = "?".$criteria;
+    }
+    if (is_numeric($version)) {
+        $version = 'application/vnd.hedtech.integration.v'.$version.'+json';
+    }
     $url = "https://integrate.elluciancloud.{$_ENV['ETHOS_REGION']}/api/$resource$filter";
+    
     $requestHeaders = array(
-        'Accept: application/json',
-        "Content-Type:$version",
+        "Accept: $version",
         "Authorization: Bearer $token"
     );
 
@@ -276,8 +282,7 @@ function eeGetEthosDataModel($resource, $id, $version = null, $token = null, $us
     $method = "GET";
     $url = "https://integrate.elluciancloud.{$_ENV['ETHOS_REGION']}/api/$resource/$id";
     $requestHeaders = array(
-        'Accept: application/json',
-        "Content-Type:$version",
+        "Accept: $version",
         "Authorization: Bearer " . eeGetEthosSessionToken()
     );
     return callCurl($method, $url, $requestHeaders);
