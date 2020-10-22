@@ -130,7 +130,7 @@ function ethosGetChangeNotifications()
 {
     $token = eeGetEthosSessionToken();
     $method = "GET";
-    $url = "https://integrate.elluciancloud.{$_ENV['ETHOS_REGION']}/consome";
+    $url = "https://integrate.elluciancloud.{$_ENV['ETHOS_REGION']}/consume";
     $requestHeaders = array(
         'Accept: application/vnd.hedtech.change-notifications.v2+json',
         "Authorization: Bearer $token"
